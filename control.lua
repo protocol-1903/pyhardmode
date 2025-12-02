@@ -1,4 +1,5 @@
 require "scripts.composite-entity"
+require "scripts.wiki"
 
 local function init()
     storage.composite_entities = storage.composite_entities or {}
