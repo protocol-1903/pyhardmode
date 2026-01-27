@@ -8,6 +8,15 @@ local function init()
     end
     --remote.call("undeletable-fluids", "add_deletable_fluid", "water")
     --remote.call("undeletable-fluids", "add_deletable_fluid", "steam")
+
+    -- create wiki pages
+    remote.call("pywiki", "add_section", "hardmode")
+
+    remote.call("pywiki", "add_page", {
+        name = "heat",
+        section = "hardmode",
+        text_only = true
+    })
 end
 
 script.on_init(function()
