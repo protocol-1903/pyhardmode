@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.37
+Date: 2026-01-27
+  Bugfixes:
+    - Fixed crash with v1.3.35 ([#76](https://github.com/notnotmelon/pyhardmode/issues/76))
+  Locale:
+    - Add a heat page to the pY Codex ([#79](https://github.com/notnotmelon/pyhardmode/issues/79))
+---------------------------------------------------------------------------------------------------
 Version: 1.3.36
 Date: 2026-01-27
   Locale:
