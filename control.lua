@@ -1,4 +1,4 @@
-require "scripts.composite-entity"
+local composite = require "scripts.composite-entity"
 
 local function init()
     storage.composite_entities = storage.composite_entities or {}
@@ -72,10 +72,15 @@ script.on_nth_tick(87, function(event)
     end
 end)
 
--- when a chest is killed, drop all its contents
+-- when a chest is killed, drop all its contents.
+-- This is also the mod's ONLY on_entity_died registration, so it has to run the
+-- composite-entity cleanup too - a second script.on_event for the same event
+-- would overwrite this one rather than run alongside it.
 script.on_event(defines.events.on_entity_died, function(event)
     local entity = event.entity
-    if not entity.valid or not entity.unit_number then return end
+    if not entity or not entity.valid then return end
+    composite.on_destroyed(event)
+    if not entity.unit_number then return end
     local inventory = entity.get_inventory(defines.inventory.chest)
     if not inventory then return end
     for i = 1, #inventory do
